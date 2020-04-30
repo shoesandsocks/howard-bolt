@@ -10,8 +10,8 @@ const listenToEvents = (app, store) => {
         channel: event.channel,
       };
       store.addUser(user);
+      say(messages.welcome_app_home);
     }
-    say(messages.welcome_app_home);
   });
 };
 
