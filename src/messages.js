@@ -25,7 +25,7 @@ export default {
             "Howard 🐔 here. I pop off in #debug all the time, and in #testing half the time. Elsewhere you can control how likely I am to interject. Zero is effectively *off*.",
         },
         accessory: {
-          action_id: "mouth_select",
+          action_id: "mouthiness_select",
           type: "static_select",
           placeholder: {
             type: "plain_text",
