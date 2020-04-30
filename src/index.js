@@ -15,9 +15,9 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-listenToEvents(app);
-listenToMessages(app);
-runJobs(app);
+listenToEvents(app, store);
+listenToMessages(app, store);
+runJobs(app, store);
 
 (async () => {
   await app.start(port);

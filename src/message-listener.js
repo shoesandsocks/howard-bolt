@@ -16,7 +16,7 @@ async function iHeardHoward({ message, next, say }) {
   }
 }
 
-const listenToMessages = (app) => {
+const listenToMessages = (app, store) => {
   app.message(noBotMessages, iHeardHoward, async ({ say, message }) => {
     try {
       const { channel } = message;
@@ -32,9 +32,9 @@ const listenToMessages = (app) => {
           const quote = await randomQuote();
           await say(quote);
         }
-      } else if (coinflip(25)) {
+      } else if (coinflip(store.getMouthiness())) {
         console.log(
-          "not testing or debug. 25% chance of the search-func speaking"
+          `not testing or debug. ${store.getMouthiness()}% chance of the search-func speaking`
         );
         const quote = await search(message.text);
         await say(quote);
