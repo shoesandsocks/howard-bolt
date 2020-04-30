@@ -17,11 +17,11 @@ const listenToEvents = (app, store) => {
   app.action(
     { action_id: "mouthiness_select" },
     async ({ context, action, ack, say }) => {
-      ack();
+      await ack();
       console.log(action);
       const newMouthiness = action.value + 0; // .value? coerced to num?
       store.setMouthiness(newMouthiness);
-      say(`Howard's mouthiness set to ${newMouthiness}%.`);
+      await say(`Howard's mouthiness set to ${newMouthiness}%.`);
     }
   );
 };
