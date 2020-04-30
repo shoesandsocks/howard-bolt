@@ -58,6 +58,7 @@ async function noBotMessages({ message, next }) {
   }
 }
 async function iHeardHoward({ message, next, say }) {
+  console.log(message);
   if (message.text.match(/(howard|Howard|howie|Howie|HC|chicken|Chicken)/g)) {
     console.log("i heard my name");
     const quote = await randomQuote();
@@ -68,7 +69,6 @@ async function iHeardHoward({ message, next, say }) {
 }
 
 app.message(noBotMessages, iHeardHoward, async ({ say, message }) => {
-  console.log(message);
   try {
     const { channel } = message;
     if (channel === "C61L2R7N2") {
