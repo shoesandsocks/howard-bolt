@@ -1,0 +1,19 @@
+{
+  "name": "bolt-howard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "backpack",
+    "build": "backpack build",
+    "start": "npm run build && node ./build/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/bolt": "^2.0.1",
+    "backpack-core": "^0.8.4",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.5.7"
+  }
+}
