@@ -18,7 +18,7 @@ const runJobs = (app) => {
 
   // temporary dev job
   cron.schedule("0,12,20,30,40,50 * * * 0-6", () => {
-    console.log("mouthiness: ", store.getMouthiness(), "me: ", store.getMe());
+    console.log("mouthiness: ", store.getMouthiness());
   });
 };
 

@@ -11,8 +11,9 @@ const listenToEvents = (app, store) => {
       };
       store.addUser(user);
 
-      say(messages.welcome_app_home);
+      say(`hello for the first time, ${user}`);
     }
+    say(`hello again ${user}`);
   });
 };
 
