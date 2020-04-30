@@ -18,7 +18,7 @@ const listenToEvents = (app, store) => {
     { action_id: "mouthiness_select" },
     async ({ context, action, ack, say }) => {
       await ack();
-      const newMouthiness = action.selected_option.value + 0; // .value? coerced to num?
+      const newMouthiness = parseInt(action.selected_option.value, 10);
       store.setMouthiness(newMouthiness);
       await say(`Howard's mouthiness set to ${newMouthiness}%.`);
     }
