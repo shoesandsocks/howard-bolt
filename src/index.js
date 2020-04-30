@@ -39,6 +39,7 @@ const markov = (text) =>
 
 // from the docs' "Listener Middleware" section
 async function noBotMessages({ message, next }) {
+  console.log(message);
   /*
    * https://github.com/slackapi/bolt/issues/465
    *
@@ -53,12 +54,11 @@ async function noBotMessages({ message, next }) {
   // if (!message.subtype || message.subtype !== "bot_message") {
   //   await next();
   // }
-  if (message.bot_id) {
+  if (!message.bot_id) {
     await next();
   }
 }
 async function iHeardHoward({ message, next, say }) {
-  console.log(message);
   if (message.text.match(/(howard|Howard|howie|Howie|HC|chicken|Chicken)/g)) {
     console.log("i heard my name");
     const quote = await randomQuote();
