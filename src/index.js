@@ -2,58 +2,18 @@
 
 import { App } from "@slack/bolt";
 
-import { howard } from "./funcs/howard";
 import { coinflip } from "./funcs/coinflip";
+import { search, randomQuote, markov } from "./funcs/searches";
 
 require("dotenv").config();
-
-const rnd = (arr) => Math.floor(Math.random() * arr.length);
 
 const app = new App({
   token: process.env.BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-// const botParams = {
-//   icon_emoji: ':howard:',
-// };
-
-const randomQuote = () =>
-  howard("getQuotes", 1)
-    .then((reply) => reply[0].text)
-    .catch(() => "failboat. :(");
-
-const search = (textToSearch) =>
-  howard("searchQuotes", textToSearch)
-    .then((reply) => {
-      return Array.isArray(reply) && reply.length > 0
-        ? reply[rnd(reply)].text
-        : randomQuote();
-    })
-    .catch(() => randomQuote());
-
-const markov = (text) =>
-  howard("getMarkov", text)
-    .then((reply) => reply)
-    .catch(() => "markov");
-
 // from the docs' "Listener Middleware" section
 async function noBotMessages({ message, next }) {
-  // console.log(message);
-  /*
-   * https://github.com/slackapi/bolt/issues/465
-   *
-   * "As far as I know, the server-side no longer
-   * sends bot_message subtyped events. Instead, it sends
-   * no-subtype events with bot_id and bot_profile
-   * properties. If the server-side gets back to the
-   * previous behavior in the future, we may need
-   * to add bot_message events as well."
-   */
-  // so let's change it
-  // if (!message.subtype || message.subtype !== "bot_message") {
-  //   await next();
-  // }
   if (!message.bot_id) {
     await next();
   }
