@@ -1,33 +1,87 @@
 export default {
   welcome_app_home: {
-    text:
-      "Hi there! Bolt is a simple App that forwards messages to another channel by reacting to a message with the :zap: emoji.",
+    type: "modal",
+    title: {
+      type: "plain_text",
+      text: "Howard Chicken, mark III",
+      emoji: true,
+    },
+    submit: {
+      type: "plain_text",
+      text: "Submit",
+      emoji: true,
+    },
+    close: {
+      type: "plain_text",
+      text: "Cancel",
+      emoji: true,
+    },
     blocks: [
       {
         type: "section",
         text: {
           type: "mrkdwn",
           text:
-            "Hi there! \n\n Bolt is a simple App that forwards messages to another channel by reacting to a message with the :zap: emoji. \n\n But before we start, let's configure a channel you want all messages to be forwarded to. \n\n",
-        },
-      },
-      {
-        type: "divider",
-      },
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: "*Pick a channel from the dropdown list*",
+            "Howard 🐔 here. I pop off in #debug all the time, and in #testing half the time. Elsewhere you can control how likely I am to interject. Zero is effectively *off*.",
         },
         accessory: {
-          action_id: "configure_channel",
-          type: "channels_select",
+          action_id: "mouth_select",
+          type: "static_select",
           placeholder: {
             type: "plain_text",
-            text: "Select channel",
-            emoji: true,
+            text: "Select a percentage",
           },
+          options: [
+            {
+              text: {
+                type: "plain_text",
+                text: "0%",
+              },
+              value: "0",
+            },
+            {
+              text: {
+                type: "plain_text",
+                text: "15%",
+              },
+              value: "15",
+            },
+            {
+              text: {
+                type: "plain_text",
+                text: "30%",
+              },
+              value: "30",
+            },
+            {
+              text: {
+                type: "plain_text",
+                text: "45%",
+              },
+              value: "45",
+            },
+            {
+              text: {
+                type: "plain_text",
+                text: "60%",
+              },
+              value: "60",
+            },
+            {
+              text: {
+                type: "plain_text",
+                text: "75%",
+              },
+              value: "75",
+            },
+            {
+              text: {
+                type: "plain_text",
+                text: "90%",
+              },
+              value: "90",
+            },
+          ],
         },
       },
     ],
