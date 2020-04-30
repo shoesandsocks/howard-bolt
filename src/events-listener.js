@@ -11,9 +11,9 @@ const listenToEvents = (app, store) => {
       };
       store.addUser(user);
 
-      say(`hello for the first time, ${user}`);
+      return say(`hello for the first time, ${JSON.stringify(user)}`);
     }
-    say(`hello again ${user}`);
+    return say(`hello again ${user}`);
   });
 };
 
