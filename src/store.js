@@ -1,7 +1,7 @@
 let messages = {};
 let users = {};
 let me = undefined;
-let defaultChannel = "C0C3VLD28"; // rotl
+let defaultChannel = "C61L2R7N2"; // debug
 let mouthiness = 25;
 
 const setMouthiness = (num) => {

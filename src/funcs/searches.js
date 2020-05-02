@@ -4,19 +4,24 @@ const rnd = (arr) => Math.floor(Math.random() * arr.length);
 
 export const randomQuote = () =>
   howard("getQuotes", 1)
-    .then((reply) => reply[0].text)
+    .then(({ howardsReply }) => howardsReply[0].text)
     .catch(() => "failboat. :(");
 
 export const search = (textToSearch) =>
   howard("searchQuotes", textToSearch)
-    .then((reply) => {
-      return Array.isArray(reply) && reply.length > 0
-        ? reply[rnd(reply)].text
+    .then(({ howardsReply }) => {
+      return Array.isArray(howardsReply) && howardsReply.length > 0
+        ? howardsReply[rnd(howardsReply)].text
         : randomQuote();
     })
     .catch(() => randomQuote());
 
 export const markov = (text) =>
   howard("getMarkov", text)
-    .then((reply) => reply)
-    .catch(() => "markov");
+    .then(({ howardsReply }) => howardsReply)
+    .catch(() => randomQuote());
+
+export const poetize = (text) =>
+  howard("getPoem", text)
+    .then(({ howardsReply }) => howardsReply)
+    .catch(() => randomQuote());

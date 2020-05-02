@@ -2,6 +2,7 @@ import cron from "node-cron";
 
 import { randomQuote } from "./funcs/searches";
 import store from "./store";
+import makeMP3 from "./funcs/phraseToMP3";
 
 require("dotenv").config();
 
@@ -17,8 +18,21 @@ const runJobs = (app) => {
   });
 
   // temporary dev job
-  cron.schedule("0,12,20,30,40,50 * * * 0-6", () => {
-    console.log("mouthiness: ", store.getMouthiness());
+  cron.schedule("25 * * * 0-6", async () => {
+    const quote = await randomQuote();
+    return makeMP3(quote)
+      .then((reply) => reply.json())
+      .then(async (json) => {
+        if (json.error) {
+          return console.log(json.error);
+        }
+        const postIt = await app.client.chat.postMessage({
+          token: process.env.SLACK_BOT_TOKEN,
+          channel: store.getChannel(),
+          text: json.response.filename,
+        });
+      })
+      .catch((e) => console.log(e));
   });
 };
 

@@ -1,5 +1,5 @@
 import { coinflip } from "./funcs/coinflip";
-import { search, randomQuote, markov } from "./funcs/searches";
+import { search, randomQuote, markov, poetize } from "./funcs/searches";
 
 async function noBotMessages({ message, next }) {
   if (!message.bot_id) {
@@ -21,8 +21,8 @@ const listenToMessages = (app, store) => {
     try {
       const { channel } = message;
       if (channel === "C61L2R7N2") {
-        console.log("debug channel - always responding with markov");
-        const quote = await markov(message.text);
+        console.log("debug channel - always responding with poem, for now");
+        const quote = await poetize(message.text);
         await say(quote);
       } else if (channel === "C3ZHJ4K9Q") {
         console.log(
