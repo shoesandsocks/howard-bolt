@@ -4,7 +4,10 @@ const rnd = (arr) => Math.floor(Math.random() * arr.length);
 
 export const randomQuote = () =>
   howard("getQuotes", 1)
-    .then(({ howardsReply }) => howardsReply[0].text)
+    .then((resp) => {
+      console.log(resp);
+      return resp.howardsReply[0].text;
+    })
     .catch(() => "failboat. :(");
 
 export const search = (textToSearch) =>
