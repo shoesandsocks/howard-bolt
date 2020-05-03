@@ -3,7 +3,7 @@ import handleUpdateRequest from "./funcs/runCoreUpdate";
 const listenToCommands = (app) => {
   app.command("/howard", async (props) => {
     console.log(Object.keys(props));
-    console.log(props.context);
+    console.log(props.payload);
     const { command, ack, say, respond } = props;
     await ack();
     switch (command.text) {
