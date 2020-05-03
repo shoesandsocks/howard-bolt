@@ -10,7 +10,7 @@ async function iHeardHoward({ message, next, say }) {
   if (message.text.match(/(howard|Howard|howie|Howie|HC|chicken|Chicken)/g)) {
     console.log("i heard my name");
     const quote = await getHowardsReply({ query: "getQuotes", argument: 1 });
-    await say(quote);
+    await say(quote[0].text); // FIXME: this is too brittle. fix at the gHR level?
   } else {
     await next();
   }

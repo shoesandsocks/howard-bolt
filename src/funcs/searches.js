@@ -3,17 +3,14 @@ import fetch from "node-fetch";
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
 const url = "https://howardchicken.online/howard";
 
-export const getHowardsReply = async ({ query, argument }) => {
-  const x = await fetch(url, {
+export const getHowardsReply = ({ query, argument }) =>
+  fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, argument }),
   });
-  console.log(x);
-  return x;
-};
 
 export const search = (textToSearch) =>
   getHowardsReply("searchQuotes", textToSearch)
