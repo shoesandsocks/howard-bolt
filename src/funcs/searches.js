@@ -30,9 +30,7 @@ export const getHowardsReply = ({ query, argument }) =>
         case queries.getAll:
           return rnd(howardsReply).original.text;
         case queries.searchQuotes:
-          console.log(howardsReply);
-          console.log(rnd(howardsReply).text);
-          return howardsReply.length
+          return howardsReply.length > 0
             ? rnd(howardsReply).text
             : getHowardsReply({ query: queries.getQuotes, argument: 1 });
         case queries.getQuotes:
