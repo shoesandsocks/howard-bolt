@@ -1,7 +1,10 @@
 import handleUpdateRequest from "./funcs/runCoreUpdate";
 
 const listenToCommands = (app) => {
-  app.command("/howard", async ({ command, ack, say, respond }) => {
+  app.command("/howard", async (payload) => {
+    console.log(payload);
+
+    const { command, ack, say, respond } = payload;
     await ack();
     switch (command.text) {
       case "update":
