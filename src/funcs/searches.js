@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 
-const rnd = (arr) => Math.floor(Math.random() * arr.length);
+const rnd = (arr) => arr[(Math.random() * arr.length) | 0];
+
 const url = "https://howardchicken.online/howard";
 
 export const queries = {
