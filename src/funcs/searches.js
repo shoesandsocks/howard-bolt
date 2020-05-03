@@ -1,11 +1,9 @@
 import fetch from "node-fetch";
 
-import { howard } from "./howard";
-
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
 const url = "https://howardchicken.online/howard";
 
-const getHowardsReply = async ({ query, argument }) => {
+export const getHowardsReply = async ({ query, argument }) => {
   const x = await fetch(url, {
     method: "POST",
     headers: {
