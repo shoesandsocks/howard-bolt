@@ -25,7 +25,7 @@ const listenToCommands = (app) => {
       }
     } else {
       await say(
-        `I only know "update" right now; I can't parse ${command.text}`
+        `I only know "update" right now; I don't know what to do with "${command.text}".`
       );
     }
   });
