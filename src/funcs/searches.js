@@ -1,14 +1,25 @@
 import { howard } from "./howard";
 
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
+const url = "https://howardchicken.online/howard";
+
+const getQuote = () => {
+  const params = new URLSearchParams();
+  params.append("query", "getQuotes");
+  params.append("argument", 1);
+  return fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: params,
+  });
+};
 
 export const randomQuote = () =>
-  howard("getQuotes", 1)
-    .then((resp) => {
-      console.log(resp);
-      return resp.howardsReply[0].text;
-    })
-    .catch(() => "failboat. :(");
+  getQuote()
+    .then(({ howardsReply }) => howardsReply)
+    .catch(() => "fartz");
 
 export const search = (textToSearch) =>
   howard("searchQuotes", textToSearch)
