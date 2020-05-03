@@ -36,7 +36,7 @@ const listenToMessages = (app, store) => {
             query: "getQuotes",
             argument: 1,
           });
-          await say(quote[0].text);
+          await say(quote);
         }
       } else if (coinflip(store.getMouthiness())) {
         console.log(
@@ -46,7 +46,6 @@ const listenToMessages = (app, store) => {
           query: "searchQuotes",
           argument: message.text,
         });
-        // FIXME: likely to be an array, here
         await say(quote);
       } else {
         console.log("eh, i'll pass.");

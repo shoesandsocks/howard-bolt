@@ -10,15 +10,24 @@ export const getHowardsReply = ({ query, argument }) =>
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, argument }),
-  });
-
-export const search = (textToSearch) =>
-  getHowardsReply("searchQuotes", textToSearch)
-    .then((response) => response.json())
-    .then(({ howardsReply }) => howardsReply)
-    .then((reply) =>
-      Array.isArray(reply) && reply.length > 0
-        ? reply[rnd(reply)].text
-        : ["nertz"]
-    )
-    .catch(() => ["fartz"]);
+  })
+    .then((y) => y.json())
+    .then(({ howardsReply }) => {
+      switch (query) {
+        case queries.getEpisode:
+        case queries.getRandomEpisode:
+          return howardsReply.title;
+        case queries.getAll:
+          return rnd(howardsReply).original.text;
+        case queries.searchQuotes:
+          return howardsReply.length
+            ? rnd(howardsReply).text
+            : getHowardsReply({ query: "getQuotes", argument: 1 });
+        case queries.getQuotes:
+          return argument > 1 ? rnd(howardsReply).text : howardsReply[0].text;
+        case queries.getMarkov:
+        case queries.getPoem:
+        default:
+          return howardsReply;
+      }
+    });
