@@ -4,6 +4,7 @@ const makeMessage = (results) => {
   const { newQuotes, depQuotes } = results;
   console.log(depQuotes);
   const template = {
+    response_type: "in_channel",
     text: "Here's what I added to the database:",
   };
   template.attachments = newQuotes.map((quote) => JSON.stringify(quote));
@@ -11,7 +12,7 @@ const makeMessage = (results) => {
 };
 
 const listenToCommands = (app) => {
-  app.command("/howard", async ({ command, ack, say }) => {
+  app.command("/howard", async ({ command, ack, say, respond }) => {
     await ack();
     if (command.text === "update") {
       const response = await runCoreUpdate();
@@ -21,7 +22,7 @@ const listenToCommands = (app) => {
       }
       if (response.results) {
         const message = makeMessage(response.results);
-        await say(message);
+        await respond(message);
       }
     } else {
       await say(
