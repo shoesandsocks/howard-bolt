@@ -5,16 +5,15 @@ import { howard } from "./howard";
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
 const url = "https://howardchicken.online/howard";
 
-const getQuote = () => {
-  const params = new URLSearchParams();
-  params.append("query", "getQuotes");
-  params.append("argument", 1);
-  return fetch(url, {
+const getQuote = () => fetch(url, {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
     },
-    body: params,
+    body: JSON.stringify({
+      query: 'getQuote',
+      argument: 1
+    })
   });
 };
 
