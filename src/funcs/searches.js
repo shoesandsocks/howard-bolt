@@ -5,17 +5,17 @@ import { howard } from "./howard";
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
 const url = "https://howardchicken.online/howard";
 
-const getQuote = () => fetch(url, {
+const getQuote = () =>
+  fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      query: 'getQuote',
-      argument: 1
-    })
+      query: "getQuote",
+      argument: 1,
+    }),
   });
-};
 
 export const randomQuote = () =>
   getQuote()
