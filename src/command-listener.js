@@ -2,7 +2,7 @@ import handleUpdateRequest from "./funcs/runCoreUpdate";
 
 const listenToCommands = (app) => {
   app.command("/howard", async (payload) => {
-    console.log(payload);
+    console.log(Object.keys(payload));
 
     const { command, ack, say, respond } = payload;
     await ack();
