@@ -24,26 +24,25 @@ const listenToMessages = (app, store) => {
     try {
       const { channel } = message;
       if (channel === "C61L2R7N2") {
-        console.log("debug channel - always responding with poem, for now");
+        console.log("#debug: always responding with poem, for now");
         const quote = await getHowardsReply({
           query: queries.getPoem,
           argument: message.text,
         });
         await say(quote);
       } else if (channel === "C3ZHJ4K9Q") {
-        console.log(
-          "testing channel, responding 50% of the time with random quote"
-        );
         if (coinflip(50)) {
+          console.log("#testing, responding 50% of the time with random quote");
           const quote = await getHowardsReply({
             query: queries.getQuotes,
             argument: 1,
           });
           await say(quote);
         }
+        console.log("#testing: coinflip failed; not responding");
       } else if (coinflip(store.getMouthiness())) {
         console.log(
-          `not testing or debug. ${store.getMouthiness()}% chance of the search-func speaking`
+          `not #testing or #debug. ${store.getMouthiness()}% chance of the search-func speaking`
         );
         const quote = await getHowardsReply({
           query: queries.searchQuotes,
