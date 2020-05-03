@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
 const url = "https://howardchicken.online/howard";
 
-const queries = {
+export const queries = {
   getAll: "getAll",
   getEpisode: "getEpisode",
   getRandomEpisode: "getRandomEpisode",
