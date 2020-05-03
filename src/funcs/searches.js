@@ -32,7 +32,7 @@ export const getHowardsReply = ({ query, argument }) =>
         case queries.searchQuotes:
           return howardsReply.length
             ? rnd(howardsReply).text
-            : getHowardsReply({ query: "getQuotes", argument: 1 });
+            : getHowardsReply({ query: queries.getQuotes, argument: 1 });
         case queries.getQuotes:
           return argument > 1 ? rnd(howardsReply).text : howardsReply[0].text;
         case queries.getMarkov:
