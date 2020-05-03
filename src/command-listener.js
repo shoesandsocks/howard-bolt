@@ -5,7 +5,7 @@ const listenToCommands = (app) => {
     await ack();
     const response = await runCoreUpdate();
     console.log(response);
-    await say(response);
+    await say(JSON.stringify(response));
   });
 };
 
