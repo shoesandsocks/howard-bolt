@@ -7,7 +7,9 @@ const makeMessage = (results) => {
     response_type: "in_channel",
     text: "Here's what I added to the database:",
   };
-  template.attachments = newQuotes.map((quote) => JSON.stringify(quote));
+  template.attachments = newQuotes.map((quote) => ({
+    text: JSON.stringify(quote),
+  }));
   return template;
 };
 
@@ -22,6 +24,7 @@ const listenToCommands = (app) => {
       }
       if (response.results) {
         const message = makeMessage(response.results);
+        console.log(respond);
         await respond(message);
       }
     } else {
