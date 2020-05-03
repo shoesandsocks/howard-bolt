@@ -26,7 +26,7 @@ const listenToMessages = (app, store) => {
       if (channel === "C61L2R7N2") {
         console.log("debug channel - always responding with poem, for now");
         const quote = await getHowardsReply({
-          query: queries.poetize,
+          query: queries.getPoem,
           argument: message.text,
         });
         await say(quote);
