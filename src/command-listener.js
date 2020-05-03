@@ -1,36 +1,17 @@
-import runCoreUpdate from "./funcs/runCoreUpdate";
-
-const makeMessage = (results) => {
-  const { newQuotes, depQuotes } = results;
-  console.log(depQuotes);
-  const template = {
-    response_type: "in_channel",
-    text: "Here's what I added to the database:",
-  };
-  template.attachments = newQuotes.map((quote) => ({
-    text: JSON.stringify(quote),
-  }));
-  return template;
-};
+import handleUpdateRequest from "./funcs/runCoreUpdate";
 
 const listenToCommands = (app) => {
   app.command("/howard", async ({ command, ack, say, respond }) => {
     await ack();
-    if (command.text === "update") {
-      const response = await runCoreUpdate();
-      console.log(response.results, response.error);
-      if (response.error) {
-        await say("something went wrong");
-      }
-      if (response.results) {
-        const message = makeMessage(response.results);
-        console.log(respond);
-        await respond(message);
-      }
-    } else {
-      await say(
-        `I only know "update" right now; I don't know what to do with "${command.text}".`
-      );
+    switch (command.text) {
+      case "update":
+        return handleUpdateRequest(say, respond);
+      case "hi":
+        return say("bok bok. hi.");
+      default:
+        await say(
+          `I only know "update" right now; I don't know what to do with "${command.text}".`
+        );
     }
   });
 };
