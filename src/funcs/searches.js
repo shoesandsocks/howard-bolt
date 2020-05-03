@@ -17,24 +17,6 @@ const getHowardsReply = async ({ query, argument }) => {
   return x;
 };
 
-export const randomQuote = () =>
-  getHowardsReply("getQuote", 1)
-    .then((response) => response.json())
-    .then(({ howardsReply }) => howardsReply)
-    .catch(() => "fartz");
-
-export const markov = (text) =>
-  getHowardsReply("getMarkov", text)
-    .then((response) => response.json())
-    .then(({ howardsReply }) => howardsReply)
-    .catch(() => randomQuote());
-
-export const poetize = (text) =>
-  getHowardsReply("getPoem", text)
-    .then((response) => response.json())
-    .then(({ howardsReply }) => howardsReply)
-    .catch(() => randomQuote());
-
 export const search = (textToSearch) =>
   getHowardsReply("searchQuotes", textToSearch)
     .then((response) => response.json())
@@ -42,6 +24,6 @@ export const search = (textToSearch) =>
     .then((reply) =>
       Array.isArray(reply) && reply.length > 0
         ? reply[rnd(reply)].text
-        : randomQuote()
+        : ["nertz"]
     )
-    .catch(() => randomQuote());
+    .catch(() => ["fartz"]);
