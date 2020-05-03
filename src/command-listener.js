@@ -1,4 +1,5 @@
 import handleUpdateRequest from "./funcs/runCoreUpdate";
+import makeMarkov from "./funcs/markov";
 
 const listenToCommands = (app) => {
   app.command("/howard", async (props) => {
@@ -12,6 +13,8 @@ const listenToCommands = (app) => {
         return handleUpdateRequest(say, respond, channel_id, response_url);
       case "hi":
         return say("bok bok. hi.");
+      case "markov":
+        return say(makeMarkov());
       default:
         await say(
           `I only know "update" right now; I don't know what to do with "${command.text}".`

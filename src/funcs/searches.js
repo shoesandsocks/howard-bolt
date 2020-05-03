@@ -29,7 +29,9 @@ export const getHowardsReply = ({ query, argument }) =>
         case queries.getRandomEpisode:
           return howardsReply.title;
         case queries.getAll:
-          return rnd(howardsReply).original.text;
+          return argument === "really"
+            ? howardsReply
+            : rnd(howardsReply).original.text;
         case queries.searchQuotes:
           return howardsReply.length > 0
             ? rnd(howardsReply).text
