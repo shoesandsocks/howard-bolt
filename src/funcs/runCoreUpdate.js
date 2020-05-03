@@ -1,9 +1,10 @@
 import fetch from "node-fetch";
 
+const url = "https://howardchicken.online/howard/core";
+
 const runCoreUpdate = () =>
-  fetch("https://jsonplaceholder.typicode.com/todos/1")
+  fetch(url)
     .then((response) => response.json())
-    .then((json) => json)
     .catch(() => {
       error: "boope";
     });
