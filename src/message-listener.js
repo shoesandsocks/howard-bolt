@@ -49,13 +49,12 @@ const listenToMessages = (app, store) => {
           query: queries.searchQuotes,
           argument: message.text,
         });
-        console.log("inside the listener: ", quote);
         await say(quote);
       } else {
         console.log("eh, i'll pass.");
       }
     } catch (e) {
-      console.log("here");
+      console.log("message listener catch");
     }
   });
 };

@@ -12,12 +12,3 @@ export default async (string) =>
     },
     body: JSON.stringify({ code, string }),
   });
-// .then((reply) => reply.json())
-// .then((json) => {
-//   if (json.error) return res.json({ message: json.message });
-//   return res.json({ message: "done", filename: json.response.filename });
-// })
-// .catch((e) => {
-//   console.log(e);
-//   return res.json({ message: "error there" });
-// });

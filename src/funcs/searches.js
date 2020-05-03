@@ -23,6 +23,7 @@ export const getHowardsReply = ({ query, argument }) =>
   })
     .then((y) => y.json())
     .then(({ howardsReply }) => {
+      console.log({ howardsReply });
       switch (query) {
         case queries.getEpisode:
         case queries.getRandomEpisode:
