@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 import { howard } from "./howard";
 
 const rnd = (arr) => Math.floor(Math.random() * arr.length);
