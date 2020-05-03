@@ -14,7 +14,8 @@ const listenToCommands = (app) => {
       case "hi":
         return say("bok bok. hi.");
       case "markov":
-        return say(makeMarkov());
+        const response = await makeMarkov();
+        return say(response);
       default:
         await say(
           `I only know "update" right now; I don't know what to do with "${command.text}".`
