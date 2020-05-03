@@ -36,7 +36,7 @@ const listenToMessages = (app, store) => {
             query: "getQuotes",
             argument: 1,
           });
-          await say(quote);
+          await say(quote[0].text);
         }
       } else if (coinflip(store.getMouthiness())) {
         console.log(
