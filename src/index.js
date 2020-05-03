@@ -4,6 +4,7 @@ import { App } from "@slack/bolt";
 import store from "./store";
 import listenToEvents from "./events-listener";
 import listenToMessages from "./message-listener";
+import listenToCommands from "./command-listener";
 import runJobs from "./cron-jobs";
 
 require("dotenv").config();
@@ -17,6 +18,7 @@ const app = new App({
 
 listenToEvents(app, store);
 listenToMessages(app, store);
+listenToCommands(app);
 runJobs(app, store);
 
 (async () => {
