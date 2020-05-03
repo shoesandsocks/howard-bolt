@@ -9,9 +9,10 @@ const runCoreUpdate = () =>
       error: "boope";
     });
 
-const makeMessage = (results) => {
+const makeMessage = (results, response_url) => {
   const { newQuotes, depQuotes } = results;
   const template = {
+    response_url,
     response_type: "in_channel",
     text: "Nothing new to add to the database",
   };
@@ -27,12 +28,12 @@ const makeMessage = (results) => {
 };
 
 // imported as handleUpdateRequest by the command-listener. (/howard update)
-export default async (say, respond) => {
+export default async (say, respond, channel_id, response_url) => {
   const response = await runCoreUpdate();
   if (response.error) {
     await say("something went wrong");
   }
   if (response.results) {
-    await respond(makeMessage(response.results));
+    await respond(makeMessage(response.results, response_url));
   }
 };
