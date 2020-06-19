@@ -18,7 +18,7 @@ const runJobs = (app) => {
   });
 
   // temporary dev job
-  cron.schedule("0 12 * * 4", async () => {
+  cron.schedule("0 13 * * 5", async () => {
     const quote = await getHowardsReply({ query: "getQuotes", argument: 1 });
     return makeMP3(quote)
       .then((reply) => reply.json())
