@@ -16,6 +16,6 @@
     "dotenv": "^8.2.0",
     "js-markov": "^3.0.3",
     "node-cron": "^2.0.3",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
