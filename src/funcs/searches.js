@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 const rnd = (arr) => arr[(Math.random() * arr.length) | 0];
 
-const url = "https://howardchicken.online/";
+const url = "https://www.porknachos.com/node/howardAPI/";
 
 export const queries = {
   getAll: "getAll",
