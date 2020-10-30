@@ -7,8 +7,8 @@ import store from "./store";
 require("dotenv").config();
 
 const runJobs = (app) => {
-  // Friday noon
-  cron.schedule("0 12 * * 5", async () => {
+  // Friday noon FIXME: changed to 16 from 12 inside Linode/Docker UTC
+  cron.schedule("0 16 * * 5", async () => {
     const quote = await getHowardsReply({ query: "getQuotes", argument: 1 });
     const postIt = await app.client.chat.postMessage({
       token: process.env.SLACK_BOT_TOKEN,
