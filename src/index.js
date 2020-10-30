@@ -26,7 +26,8 @@ runJobs(app, store);
   // see https://glitch.com/edit/#!/slack-bolt?path=index.js%3A190%3A0
   let id = await app.client.auth
     .test({ token: process.env.SLACK_BOT_TOKEN })
-    .then((result) => result.user_id);
+    .then((result) => result.user_id)
+    .catch((err) => console.log("mega-error starting howard-bolt"));
   store.setMe(id);
   console.log(`⚡️ Bolt app is running on ${port}!`);
 })();
