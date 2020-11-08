@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const url = "http://node-aggregator/howardAPI/core";
+const url = "https://node.porknachos.com/howardAPI/core";
 
 const runCoreUpdate = () =>
   fetch(url)
