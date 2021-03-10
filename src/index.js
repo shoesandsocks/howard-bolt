@@ -1,6 +1,8 @@
 // If I move auth into this app, this is the authURL: https://slack.com/oauth/v2/authorize?client_id=11083475395.188120798310&scope=app_mentions:read,calls:read,calls:write,channels:history,channels:join,channels:read,chat:write,chat:write.customize,chat:write.public,commands,dnd:read,files:read,groups:read,im:history,im:read,im:write,incoming-webhook,mpim:history,mpim:read,mpim:write,pins:write,reactions:read,reactions:write,remote_files:read,remote_files:share,remote_files:write,team:read,users:read,users:read.email,users:write
 import { App } from "@slack/bolt";
 
+import discordApp from "./discordApp.js";
+
 import store from "./store";
 import listenToEvents from "./events-listener";
 import listenToMessages from "./message-listener";
