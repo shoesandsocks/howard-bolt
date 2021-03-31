@@ -7,7 +7,14 @@ async function noBotMessages({ message, next }) {
   }
 }
 async function iHeardHoward({ message, next, say }) {
-  if (message.text.match(/(howard|Howard|howie|Howie|HC|chicken|Chicken)/g)) {
+  console.log(
+    `did I hear my name? this is the text I'm supposed to evaluate: ${message.text}\n(this is an absurd console.log() test)`
+  );
+  if (
+    message &&
+    message.text &&
+    message.text.match(/(howard|Howard|howie|Howie|HC|chicken|Chicken)/g)
+  ) {
     console.log("i heard my name");
     const quote = await getHowardsReply({
       query: queries.getQuotes,
