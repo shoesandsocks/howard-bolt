@@ -1,8 +1,11 @@
-FROM node:12-alpine
+FROM node:lts-alpine3.11
+RUN apk add dumb-init
+ENV NODE_ENV production
 WORKDIR /usr/src/howard-bolt
-COPY . .
-RUN npm install
+COPY --chown=node:node . .
+RUN npm ci --only=production
+#RUN npm install
 RUN npm run build
-#RUN npm ci --only=production
 EXPOSE 8081
-CMD ["node", "build/main.js"]
+USER node
+CMD ["dumb-init", "node", "build/main.js"]
