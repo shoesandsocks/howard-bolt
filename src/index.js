@@ -32,4 +32,9 @@ runJobs(app, store);
     .catch((err) => console.log("mega-error starting howard-bolt"));
   store.setMe(id);
   console.log(`⚡️ Bolt app is running on ${port}!`);
+  // https://blog.heroku.com/best-practices-nodejs-errors
+  process.on("unhandledRejection", (err, promise) => {
+    console.log("Unhandled rejection at ", promise, `reason: ${err.message}`);
+    process.exit(1);
+  });
 })();
