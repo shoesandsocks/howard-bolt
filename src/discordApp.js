@@ -1,9 +1,8 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-
-const fetch = require("node-fetch");
-const Discord = require("discord.js");
-const url = require("./funcs/config");
+import fetch from "node-fetch";
+import Discord from "discord.js";
+import url from "./funcs/config.js";
 
 const client = new Discord.Client();
 
