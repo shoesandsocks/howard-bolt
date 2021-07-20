@@ -1,8 +1,7 @@
 import fetch from "node-fetch";
+import url from "./config.js";
 
 const rnd = (arr) => arr[(Math.random() * arr.length) | 0];
-
-const url = "https://node.porknachos.com/howardAPI/";
 
 export const queries = {
   getAll: "getAll",

@@ -1,11 +1,11 @@
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
 require("dotenv").config();
+const url = require("./funcs/config");
 
 const client = new Discord.Client();
 
 const howardRegex = /[hH]oward/;
-const url = "https://node.porknachos.com/howardapi";
 
 const isHuman = (msg) => {
   try {
