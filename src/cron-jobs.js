@@ -4,7 +4,7 @@ import { getHowardsReply } from "./funcs/searches";
 import store from "./store";
 // import makeMP3 from "./funcs/phraseToMP3";
 
-require("dotenv").config();
+import { config } from "dotenv";
 
 const runJobs = (app) => {
   // Friday noon FIXME: changed to 16 from 12 inside Linode/Docker UTC

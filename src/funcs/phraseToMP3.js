@@ -1,4 +1,5 @@
-require("dotenv").config();
+import { config } from "dotenv";
+
 import fetch from "node-fetch";
 
 const ngrok = process.env.NGROK;
