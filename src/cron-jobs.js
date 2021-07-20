@@ -1,10 +1,11 @@
 import cron from "node-cron";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 import { getHowardsReply } from "./funcs/searches";
 import store from "./store";
-// import makeMP3 from "./funcs/phraseToMP3";
 
-import { config } from "dotenv";
+// import makeMP3 from "./funcs/phraseToMP3";
 
 const runJobs = (app) => {
   // Friday noon FIXME: changed to 16 from 12 inside Linode/Docker UTC

@@ -1,4 +1,5 @@
-import { config } from "dotenv";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const fetch = require("node-fetch");
 const Discord = require("discord.js");

@@ -4,6 +4,4 @@ const url = isProd
   ? "http://node-aggregator/howardAPI/core"
   : "https://node.porknachos.com/howardAPI/core";
 
-console.log(url);
-
 export default url;
