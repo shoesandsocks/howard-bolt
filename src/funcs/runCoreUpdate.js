@@ -2,9 +2,10 @@ import fetch from "node-fetch";
 import url from "./config";
 
 // const url = "https://node.porknachos.com/howardAPI/core";
+const coreUrl = `${url}core`;
 
 const runCoreUpdate = () =>
-  fetch(url)
+  fetch(coreUrl)
     .then((response) => response.json())
     .catch(() => {
       error: "boope";
