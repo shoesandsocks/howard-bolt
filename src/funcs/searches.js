@@ -15,7 +15,7 @@ export const queries = {
 
 export const getHowardsReply = ({ query, argument }) => {
   try {
-    fetch(url, {
+    return fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

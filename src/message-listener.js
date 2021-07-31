@@ -7,9 +7,6 @@ async function noBotMessages({ message, next }) {
   }
 }
 async function iHeardHoward({ message, next, say }) {
-  console.log(
-    `did I hear my name? this is the text I'm supposed to evaluate: ${message.text}\n(this is an absurd console.log() test)`
-  );
   if (
     message &&
     message.text &&
