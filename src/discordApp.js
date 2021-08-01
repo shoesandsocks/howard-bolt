@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
 dotenv.config();
+import fs from "fs";
 import fetch from "node-fetch";
 import Discord from "discord.js";
 import url from "./funcs/config.js";

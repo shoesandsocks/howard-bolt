@@ -1,5 +1,5 @@
-import { coinflip } from "./funcs/coinflip";
-import { queries, getHowardsReply } from "./funcs/searches";
+import { coinflip } from "./funcs/coinflip.js";
+import { queries, getHowardsReply } from "./funcs/searches.js";
 
 async function noBotMessages({ message, next }) {
   if (!message.bot_id) {

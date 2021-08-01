@@ -1,4 +1,4 @@
-import messages from "./messages";
+import messages from "./messages.js";
 
 const listenToEvents = (app, store) => {
   app.event("app_home_opened", ({ event, say }) => {

@@ -2,13 +2,13 @@
 import { App } from "@slack/bolt";
 import * as dotenv from "dotenv";
 dotenv.config();
-import discordApp from "./discordApp.js";
+import "./discordApp.js";
 
-import store from "./store";
-import listenToEvents from "./events-listener";
-import listenToMessages from "./message-listener";
-import listenToCommands from "./command-listener";
-import runJobs from "./cron-jobs";
+import store from "./store.js";
+import listenToEvents from "./events-listener.js";
+import listenToMessages from "./message-listener.js";
+import listenToCommands from "./command-listener.js";
+import runJobs from "./cron-jobs.js";
 
 const port = process.env.PORT || 3000;
 

@@ -2,7 +2,7 @@
   "name": "bolt-howard",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "backpack",
     "build": "backpack build",
@@ -12,11 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "@slack/bolt": "^3.5.0",
-    "backpack-core": "^0.8.4",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "js-markov": "^3.0.3",
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.1"
-  }
+  },
+  "type": "module"
 }

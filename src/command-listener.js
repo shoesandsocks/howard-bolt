@@ -1,5 +1,5 @@
-import handleUpdateRequest from "./funcs/runCoreUpdate";
-import makeMarkov from "./funcs/markov";
+import handleUpdateRequest from "./funcs/runCoreUpdate.js";
+import makeMarkov from "./funcs/markov.js";
 
 const listenToCommands = (app) => {
   app.command("/howard", async (props) => {
