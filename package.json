@@ -4,9 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "backpack",
-    "build": "backpack build",
-    "start": "npm run build && node ./build/main.js"
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
