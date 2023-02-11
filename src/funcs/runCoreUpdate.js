@@ -1,8 +1,7 @@
 import fetch from "node-fetch";
 import url from "./config.js";
 
-// const url = "https://node.porknachos.com/howardAPI/core";
-const coreUrl = `${url}core`;
+const coreUrl = `${url}/core`;
 
 const runCoreUpdate = () =>
   fetch(coreUrl)
